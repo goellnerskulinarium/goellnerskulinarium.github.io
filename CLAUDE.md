@@ -34,3 +34,7 @@ The people asking for changes are usually the restaurant owners, not developers.
 python3 -m http.server 4321
 ```
 Then open http://localhost:4321.
+
+## Before launch
+
+- Remove the `<meta name="robots" content="noindex, nofollow">` line from `index.html` (it hides the demo from Google).
