@@ -12,16 +12,25 @@
   <meta property="og:description" content="Ehrliche deutsche Küche in Bischofsheim.">
   <meta property="og:image" content="assets/img/hero.jpg">
   <link rel="icon" href="assets/img/logo.png">
-  <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="assets/js/reservation.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/reservation.js?v=3" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header" id="top">
+    <div class="topbar">
+      <div class="wrap topbar-inner">
+        <div class="topbar-group">
+          <a data-href="tel" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-bind="contact.phone"></span></a>
+          <a data-href="mail" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-bind="contact.email"></span></a>
+        </div>
+        <a class="topbar-address" data-href="maps" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><span data-bind="contact.street"></span>, <span data-bind="contact.zip"></span> <span data-bind="contact.city"></span></span></a>
+      </div>
+    </div>
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="Göllner's Kulinarium – Startseite">
         <img src="assets/img/logo.png" alt="" width="44" height="44">
@@ -160,7 +169,7 @@
       <header class="reserve-head">
         <div>
           <p class="eyebrow">Reservierung</p>
-          <h2 id="reserve-title">Tisch anfragen</h2>
+          <h2 id="reserve-title" tabindex="-1" autofocus>Tisch anfragen</h2>
         </div>
         <button type="button" class="reserve-close" data-close aria-label="Schließen">&times;</button>
       </header>

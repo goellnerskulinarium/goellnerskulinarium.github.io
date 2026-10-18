@@ -50,10 +50,10 @@ function initReservation(site) {
       .filter(times => times.length);
   }
 
-  function chip(name, value, html, checked = false) {
+  function chip(name, value, html, { checked = false, disabled = false } = {}) {
     const label = document.createElement('label');
-    label.className = 'chip';
-    label.innerHTML = `<input type="radio" name="${name}" value="${value}"${checked ? ' checked' : ''}><span>${html}</span>`;
+    label.className = disabled ? 'chip is-closed' : 'chip';
+    label.innerHTML = `<input type="radio" name="${name}" value="${value}"${checked ? ' checked' : ''}${disabled ? ' disabled' : ''}><span>${html}</span>`;
     return label;
   }
 
@@ -63,20 +63,24 @@ function initReservation(site) {
     for (let i = 0; i < (cfg.daysAhead || 30); i++) {
       const date = new Date(start + i * 864e5);
       const iso = date.toISOString().slice(0, 10);
-      if (closedDates.has(iso)) continue;
-      const groups = timeGroups(date, i === 0);
-      if (groups.length) days.push({ date, iso, offset: i, groups });
+      // Closed days stay visible (greyed out) so guests see why they can't pick them.
+      const closed = !site.hours[(date.getUTCDay() + 6) % 7].slots.length ? 'Ruhetag'
+        : closedDates.has(iso) ? 'Geschlossen' : null;
+      const groups = closed ? [] : timeGroups(date, i === 0);
+      if (!closed && !groups.length) continue; // today, but too late to book online
+      days.push({ date, iso, offset: i, groups, closed });
     }
     dateBox.replaceChildren(...days.map(d => {
       const top = d.offset === 0 ? 'Heute' : d.offset === 1 ? 'Morgen' : weekdayShort.format(d.date).replace('.', '');
-      return chip('date', d.iso, `<small>${top}</small>${dayMonth.format(d.date)}`);
+      const note = d.closed ? `<small class="chip-note">${d.closed}</small>` : '';
+      return chip('date', d.iso, `<small>${top}</small>${dayMonth.format(d.date)}${note}`, { disabled: Boolean(d.closed) });
     }));
     dateBox.scrollLeft = 0;
   }
 
   function buildGuests() {
     const max = cfg.maxGuests || 8;
-    guestBox.replaceChildren(...Array.from({ length: max }, (_, i) => chip('guests', i + 1, String(i + 1), i === 1)));
+    guestBox.replaceChildren(...Array.from({ length: max }, (_, i) => chip('guests', i + 1, String(i + 1), { checked: i === 1 })));
   }
 
   function renderTimes(day) {

@@ -21,6 +21,8 @@ The people asking for changes are usually the restaurant owners, not developers.
 - To hide the notice banner, set `"notice": { "active": false }`. Don't delete it.
 - Closed days use `"slots": []`. Times are `"HH:MM"`, 24-hour clock.
 - Prices are strings with a German decimal comma, without "€", e.g. `"18,90"`.
+- After changing any CSS or JS file, bump the `?v=` number on its `<link>`/`<script>` tags in all HTML files,
+  otherwise phones keep using the cached old file (GitHub Pages caches for 10 minutes).
 - Keep JSON valid. After editing, check it with `python3 -m json.tool content/site.json`.
 - Keep the design consistent: dark background, gold accents, Cormorant Garamond for headings, Jost for body text.
   Don't introduce new colours or fonts unless asked.
