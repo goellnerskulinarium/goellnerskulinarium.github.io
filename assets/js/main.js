@@ -225,6 +225,19 @@ function setupUI() {
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
   nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
 
+  // In-page links scroll without writing #section into the URL, so a reload starts at the top
+  // instead of jumping back to the last clicked section.
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]:not([data-action]):not(.skip)');
+    if (!link) return;
+    const id = link.getAttribute('href').slice(1);
+    const target = id === 'top' ? document.body : document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    if (id === 'top') window.scrollTo({ top: 0, behavior: 'smooth' });
+    else target.scrollIntoView({ behavior: 'smooth' });
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
 }
 
@@ -238,14 +251,28 @@ function setupReveal() {
   els.forEach(el => io.observe(el));
 }
 
+// Deep links (e.g. …/#speisekarte) still work, but only once: jump after the content has
+// rendered (so the position is right), then drop the hash so a reload starts at the top.
+function handleInitialHash() {
+  const id = location.hash.slice(1);
+  if (!id) return;
+  const target = id !== 'reservieren' && document.getElementById(id);
+  if (target) target.scrollIntoView({ behavior: 'instant' });
+  history.replaceState(null, '', location.pathname + location.search);
+}
+
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 (async function init() {
   setupUI();
   try {
     const site = await loadJSON('content/site.json');
     renderSite(site);
+    initReservation(site);
     renderMenu(await loadMenu(site));
   } catch (err) {
     console.error(err);
   }
   setupReveal();
+  handleInitialHash();
 })();

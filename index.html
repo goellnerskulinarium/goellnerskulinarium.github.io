@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/js/reservation.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -26,6 +27,10 @@
         <img src="assets/img/logo.png" alt="" width="44" height="44">
         <span>Göllner's <em>Kulinarium</em></span>
       </a>
+      <div class="social-icons header-social">
+        <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" class="fill"/></svg></a>
+        <a data-href="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3H13a4 4 0 0 0-4 4v3H6.5v3.5H9V21h3.5v-7.5h2.7l.6-3.5h-3.3V7.6c0-.6.4-1.1 1.1-1.1h1.9z"/></svg></a>
+      </div>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
         <span></span><span></span>
       </button>
@@ -34,7 +39,11 @@
         <a href="#speisekarte">Speisekarte</a>
         <a href="#besuch">Öffnungszeiten</a>
         <a href="#kontakt">Kontakt</a>
-        <a class="btn btn-gold btn-sm" data-href="tel" href="#">Tisch reservieren</a>
+        <div class="social-icons nav-social">
+          <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" class="fill"/></svg></a>
+          <a data-href="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3H13a4 4 0 0 0-4 4v3H6.5v3.5H9V21h3.5v-7.5h2.7l.6-3.5h-3.3V7.6c0-.6.4-1.1 1.1-1.1h1.9z"/></svg></a>
+        </div>
+        <a class="btn btn-gold btn-sm" data-action="reserve" href="#reservieren">Tisch reservieren</a>
       </nav>
     </div>
   </header>
@@ -48,7 +57,7 @@
         <h1 class="reveal" data-bind="tagline"></h1>
         <p class="lead reveal" data-bind="intro"></p>
         <div class="hero-actions reveal">
-          <a class="btn btn-gold" data-href="tel" href="#">Tisch reservieren</a>
+          <a class="btn btn-gold" data-action="reserve" href="#reservieren">Tisch reservieren</a>
           <a class="btn btn-ghost" href="#speisekarte">Speisekarte ansehen</a>
         </div>
         <p class="status reveal" id="open-status" hidden></p>
@@ -65,7 +74,6 @@
           <p class="eyebrow">Über uns</p>
           <h2 data-bind="about.title"></h2>
           <div id="about-paragraphs"></div>
-          <p class="signature">— Ihr Team von Göllner's Kulinarium</p>
         </div>
         <figure class="about-media">
           <img src="assets/img/interior.jpg" alt="Gedeckte Tische im Restaurant" loading="lazy">
@@ -79,7 +87,6 @@
         <div class="section-head">
           <p class="eyebrow">Speisekarte</p>
           <h2>Aus unserer Küche</h2>
-          <p class="muted">Bodenständig, frisch und mit Sorgfalt gekocht.</p>
         </div>
         <div class="menu-tabs" role="tablist" id="menu-tabs"></div>
         <div class="menu-panels" id="menu-panels">
@@ -99,8 +106,8 @@
     <section class="section highlights">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Mehr als ein Abendessen</p>
-          <h2>Für jeden Anlass</h2>
+          <p class="eyebrow">Angebot</p>
+          <h2>Was wir bieten</h2>
         </div>
         <div class="cards" id="highlights"></div>
       </div>
@@ -110,7 +117,7 @@
       <div class="wrap visit-grid">
         <div>
           <p class="eyebrow">Öffnungszeiten</p>
-          <h2>Wann wir für Sie da sind</h2>
+          <h2>Wann wir geöffnet haben</h2>
           <table class="hours" id="hours"></table>
           <p class="muted small" data-bind="hoursNote"></p>
         </div>
@@ -126,7 +133,7 @@
             <li><span>E-Mail</span><a data-href="mail" data-bind="contact.email" href="#"></a></li>
           </ul>
           <div class="contact-actions">
-            <a class="btn btn-gold" data-href="tel" href="#">Jetzt anrufen</a>
+            <a class="btn btn-gold" data-action="reserve" href="#reservieren">Tisch reservieren</a>
             <a class="btn btn-ghost" data-href="maps" href="#" target="_blank" rel="noopener">Route planen</a>
           </div>
         </div>
@@ -148,5 +155,56 @@
       <p class="muted small">© <span id="year"></span> Göllner's Kulinarium · Rheinstraße 2 · 65474 Bischofsheim</p>
     </div>
   </footer>
+  <dialog class="reserve" id="reserve" aria-labelledby="reserve-title">
+    <form class="reserve-form" id="reserve-form" novalidate>
+      <header class="reserve-head">
+        <div>
+          <p class="eyebrow">Reservierung</p>
+          <h2 id="reserve-title">Tisch anfragen</h2>
+        </div>
+        <button type="button" class="reserve-close" data-close aria-label="Schließen">&times;</button>
+      </header>
+
+      <div class="reserve-body">
+        <fieldset class="field">
+          <legend>Datum</legend>
+          <div class="chips chips-scroll" id="r-dates"></div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Personen</legend>
+          <div class="chips" id="r-guests"></div>
+          <p class="hint">Mehr Personen? Rufen Sie uns gerne an: <a data-href="tel" data-bind="contact.phone" href="#"></a></p>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Uhrzeit</legend>
+          <div id="r-times"></div>
+        </fieldset>
+
+        <div class="field-grid">
+          <label class="field"><span class="label">Name</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span class="label">E-Mail</span><input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span class="label">Anmerkung <em>(optional)</em></span><textarea name="note" rows="3" placeholder="z. B. Kinderstuhl, Allergien, besonderer Anlass"></textarea></label>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </div>
+
+      <footer class="reserve-foot">
+        <p class="form-error" id="r-error" role="alert" hidden></p>
+        <button class="btn btn-gold" type="submit">Tisch anfragen</button>
+        <p class="hint">Wir bestätigen Ihre Reservierung per E-Mail. Ihre Angaben nutzen wir nur dafür – mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+      </footer>
+    </form>
+
+    <div class="reserve-done" id="reserve-done" hidden>
+      <div class="done-mark" aria-hidden="true">&#10003;</div>
+      <h2>Vielen Dank!</h2>
+      <p id="r-summary"></p>
+      <p class="hint">Wir melden uns per E-Mail, um Ihre Reservierung zu bestätigen.</p>
+      <p class="demo-note" id="r-demo" hidden>Vorschau-Modus: Diese Anfrage wurde nicht versendet.</p>
+      <button class="btn btn-ghost" type="button" data-close>Schließen</button>
+    </div>
+  </dialog>
 </body>
 </html>

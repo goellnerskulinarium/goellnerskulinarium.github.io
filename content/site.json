@@ -1,18 +1,18 @@
 {
   "name": "Göllner's Kulinarium",
-  "tagline": "Ehrliche deutsche Küche, mit Liebe zubereitet.",
-  "intro": "Saftige Steaks, goldbraune Schnitzel und Suppen wie bei Oma – frisch gekocht, herzlich serviert, mitten in Bischofsheim.",
+  "tagline": "Deutsche Küche, frisch gekocht.",
+  "intro": "Steaks, Schnitzel und hausgemachte Suppen – mittags und abends.",
 
   "notice": {
     "active": true,
-    "text": "Jetzt neu: Unsere Herbstkarte mit Wild- und Kürbisgerichten. Wir freuen uns auf Ihren Besuch!"
+    "text": "Neu: unsere Herbstkarte mit Wild und Kürbis."
   },
 
   "about": {
-    "title": "Gastfreundschaft mit Geschmack",
+    "title": "Seit 2024 in Bischofsheim",
     "paragraphs": [
-      "Seit August 2024 kochen wir in der Rheinstraße für alle, die gutes Essen ohne Schnickschnack lieben. Unsere Küche ist bodenständig und ehrlich – mit regionalen Zutaten, handwerklich zubereitet und mit einem Auge fürs Detail.",
-      "Ob Mittagstisch, Abendessen zu zweit oder Familienfeier: Bei uns sollen Sie sich wie zu Hause fühlen – nur dass Sie nicht abwaschen müssen."
+      "In der Rheinstraße kochen wir deutsche Küche mit frischen Zutaten: Steaks, Schnitzel, Suppen und wechselnde Gerichte der Saison.",
+      "Mittags und abends, zu zweit oder mit der ganzen Familie."
     ]
   },
 
@@ -37,10 +37,20 @@
   ],
   "hoursNote": "An Feiertagen können abweichende Zeiten gelten.",
 
+  "reservation": {
+    "web3formsKey": "",
+    "slotMinutes": 30,
+    "lastSeatingMinutesBeforeClose": 60,
+    "leadMinutes": 120,
+    "daysAhead": 30,
+    "maxGuests": 8,
+    "closedDates": []
+  },
+
   "highlights": [
-    { "title": "Feiern & Anlässe", "text": "Geburtstag, Jubiläum oder Firmenessen – wir planen Ihr Menü und reservieren Ihnen einen schönen Platz." },
-    { "title": "Mittagstisch", "text": "Mittwoch bis Sonntag ab 12 Uhr: schnell, frisch und so gut, dass die Pause zu kurz wird." },
-    { "title": "Gutscheine", "text": "Verschenken Sie einen Abend voller Genuss – Gutscheine erhalten Sie direkt bei uns im Restaurant." }
+    { "title": "Feiern & Anlässe", "text": "Geburtstage, Jubiläen und Firmenessen – sprechen Sie uns an." },
+    { "title": "Mittagstisch", "text": "Mittwoch bis Sonntag ab 12 Uhr." },
+    { "title": "Gutscheine", "text": "Erhältlich direkt bei uns im Restaurant." }
   ],
 
   "social": {
