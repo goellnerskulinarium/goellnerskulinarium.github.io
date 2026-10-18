@@ -231,7 +231,7 @@ body.modal-open { overflow: hidden; }
 }
 .reserve[open] { display: flex; flex-direction: column; animation: pop .25s ease; }
 .reserve::backdrop { background: rgba(5, 4, 3, .74); backdrop-filter: blur(4px); }
-.reserve-form { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.reserve-form { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; } /* not flex: 1 – Safari collapses it to 0 height */
 .reserve-form[hidden] { display: none; }
 .reserve-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 28px 32px 4px; }
 .reserve-head h2 { outline: none; margin: 0; font-size: clamp(1.9rem, 4vw, 2.3rem); }
@@ -241,7 +241,7 @@ body.modal-open { overflow: hidden; }
   border: 1px solid var(--line); background: none; color: var(--ink); font-size: 1.5rem; line-height: 1;
 }
 .reserve-close:hover { border-color: var(--gold); color: var(--gold-2); }
-.reserve-body { flex: 1; min-height: 0; overflow-y: auto; padding: 20px 32px 8px; }
+.reserve-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 20px 32px 8px; }
 .reserve-foot { padding: 16px 32px 22px; border-top: 1px solid var(--line); }
 .reserve-foot .btn { width: 100%; }
 .reserve-foot .hint { text-align: center; }
