@@ -1,0 +1,46 @@
+{
+  "note": "Alle Preise in Euro inkl. MwSt. Fragen Sie uns gerne nach Allergenen.",
+  "categories": [
+    {
+      "name": "Suppen",
+      "items": [
+        { "name": "Rinderkraftbrühe", "description": "mit Flädle und Schnittlauch", "price": "6,90" },
+        { "name": "Kürbiscremesuppe", "description": "Kürbiskernöl, geröstete Kerne", "price": "7,50", "tags": ["vegetarisch"] },
+        { "name": "Gulaschsuppe", "description": "kräftig gewürzt, mit Bauernbrot", "price": "8,50" }
+      ]
+    },
+    {
+      "name": "Vorspeisen & Salate",
+      "items": [
+        { "name": "Feldsalat", "description": "Speck, Croûtons, Kartoffeldressing", "price": "9,80" },
+        { "name": "Rindercarpaccio", "description": "Rucola, Parmesan, Zitronenöl", "price": "13,50" },
+        { "name": "Großer Salatteller", "description": "mit gebratenen Hähnchenstreifen", "price": "15,90" }
+      ]
+    },
+    {
+      "name": "Schnitzel",
+      "items": [
+        { "name": "Wiener Schnitzel vom Kalb", "description": "Preiselbeeren, Kartoffel-Gurkensalat", "price": "26,50" },
+        { "name": "Jägerschnitzel", "description": "vom Schwein, Pilzrahmsauce, Bratkartoffeln", "price": "18,90" },
+        { "name": "Paprikaschnitzel", "description": "Paprikasauce, Pommes frites", "price": "18,90" },
+        { "name": "Cordon bleu", "description": "Schinken, Bergkäse, Bratkartoffeln", "price": "21,50" }
+      ]
+    },
+    {
+      "name": "Steaks",
+      "items": [
+        { "name": "Rumpsteak 250 g", "description": "Kräuterbutter, Rosmarinkartoffeln", "price": "29,50" },
+        { "name": "Rinderfilet 200 g", "description": "Rotweinjus, Ofengemüse", "price": "36,00" },
+        { "name": "Ribeye 300 g", "description": "Pfeffersauce, Steakhouse-Pommes", "price": "34,50" }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        { "name": "Apfelstrudel", "description": "warm, mit Vanillesauce", "price": "8,50" },
+        { "name": "Crème brûlée", "description": "Tahiti-Vanille", "price": "8,90" },
+        { "name": "Schokoladenküchlein", "description": "flüssiger Kern, Vanilleeis", "price": "9,50" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Göllner's Kulinarium",
+  "tagline": "Ehrliche deutsche Küche, mit Liebe zubereitet.",
+  "intro": "Saftige Steaks, goldbraune Schnitzel und Suppen wie bei Oma – frisch gekocht, herzlich serviert, mitten in Bischofsheim.",
+
+  "notice": {
+    "active": true,
+    "text": "Jetzt neu: Unsere Herbstkarte mit Wild- und Kürbisgerichten. Wir freuen uns auf Ihren Besuch!"
+  },
+
+  "about": {
+    "title": "Gastfreundschaft mit Geschmack",
+    "paragraphs": [
+      "Seit August 2024 kochen wir in der Rheinstraße für alle, die gutes Essen ohne Schnickschnack lieben. Unsere Küche ist bodenständig und ehrlich – mit regionalen Zutaten, handwerklich zubereitet und mit einem Auge fürs Detail.",
+      "Ob Mittagstisch, Abendessen zu zweit oder Familienfeier: Bei uns sollen Sie sich wie zu Hause fühlen – nur dass Sie nicht abwaschen müssen."
+    ]
+  },
+
+  "contact": {
+    "phone": "06144 89878",
+    "phoneLink": "+49614489878",
+    "email": "info@goellnerskulinarium.de",
+    "street": "Rheinstraße 2",
+    "zip": "65474",
+    "city": "Bischofsheim",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=G%C3%B6llner%27s+Kulinarium+Rheinstra%C3%9Fe+2+65474+Bischofsheim"
+  },
+
+  "hours": [
+    { "day": "Montag",     "slots": [] },
+    { "day": "Dienstag",   "slots": [] },
+    { "day": "Mittwoch",   "slots": [["12:00", "14:00"], ["17:00", "21:30"]] },
+    { "day": "Donnerstag", "slots": [["12:00", "14:00"], ["17:00", "21:30"]] },
+    { "day": "Freitag",    "slots": [["12:00", "14:00"], ["17:00", "22:00"]] },
+    { "day": "Samstag",    "slots": [["12:00", "14:00"], ["17:00", "22:00"]] },
+    { "day": "Sonntag",    "slots": [["12:00", "20:00"]] }
+  ],
+  "hoursNote": "An Feiertagen können abweichende Zeiten gelten.",
+
+  "highlights": [
+    { "title": "Feiern & Anlässe", "text": "Geburtstag, Jubiläum oder Firmenessen – wir planen Ihr Menü und reservieren Ihnen einen schönen Platz." },
+    { "title": "Mittagstisch", "text": "Mittwoch bis Sonntag ab 12 Uhr: schnell, frisch und so gut, dass die Pause zu kurz wird." },
+    { "title": "Gutscheine", "text": "Verschenken Sie einen Abend voller Genuss – Gutscheine erhalten Sie direkt bei uns im Restaurant." }
+  ],
+
+  "social": {
+    "instagram": "https://www.instagram.com/goellnerskulinarium/",
+    "facebook": "https://www.facebook.com/profile.php?id=61560771613020"
+  },
+
+  "sources": {
+    "menuCsv": ""
+  }
+}

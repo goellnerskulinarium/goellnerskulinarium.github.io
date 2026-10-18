@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Göllner's Kulinarium – Restaurant in Bischofsheim</title>
+  <meta name="description" content="Göllner's Kulinarium in Bischofsheim: ehrliche deutsche Küche, Steaks, Schnitzel und Suppen. Rheinstraße 2, 65474 Bischofsheim. Jetzt Tisch reservieren.">
+  <meta name="theme-color" content="#0e0c0a">
+  <meta property="og:title" content="Göllner's Kulinarium">
+  <meta property="og:description" content="Ehrliche deutsche Küche in Bischofsheim.">
+  <meta property="og:image" content="assets/img/hero.jpg">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Göllner's Kulinarium – Startseite">
+        <img src="assets/img/logo.png" alt="" width="44" height="44">
+        <span>Göllner's <em>Kulinarium</em></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
+        <span></span><span></span>
+      </button>
+      <nav id="nav" class="nav">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#speisekarte">Speisekarte</a>
+        <a href="#besuch">Öffnungszeiten</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn btn-gold btn-sm" data-href="tel" href="#">Tisch reservieren</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+      <div class="wrap hero-content">
+        <img class="hero-logo reveal" src="assets/img/logo.png" alt="Göllner's Kulinarium Logo" width="220" height="220">
+        <p class="eyebrow reveal">Restaurant · Bischofsheim</p>
+        <h1 class="reveal" data-bind="tagline"></h1>
+        <p class="lead reveal" data-bind="intro"></p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-gold" data-href="tel" href="#">Tisch reservieren</a>
+          <a class="btn btn-ghost" href="#speisekarte">Speisekarte ansehen</a>
+        </div>
+        <p class="status reveal" id="open-status" hidden></p>
+      </div>
+    </section>
+
+    <div class="notice" id="notice" hidden>
+      <div class="wrap"><span class="notice-dot" aria-hidden="true"></span><p data-bind="notice.text"></p></div>
+    </div>
+
+    <section class="section about" id="ueber-uns">
+      <div class="wrap about-grid">
+        <div class="about-text">
+          <p class="eyebrow">Über uns</p>
+          <h2 data-bind="about.title"></h2>
+          <div id="about-paragraphs"></div>
+          <p class="signature">— Ihr Team von Göllner's Kulinarium</p>
+        </div>
+        <figure class="about-media">
+          <img src="assets/img/interior.jpg" alt="Gedeckte Tische im Restaurant" loading="lazy">
+          <img class="about-media-small" src="assets/img/dish3.jpg" alt="Gegrilltes Steak" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section menu" id="speisekarte">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Speisekarte</p>
+          <h2>Aus unserer Küche</h2>
+          <p class="muted">Bodenständig, frisch und mit Sorgfalt gekocht.</p>
+        </div>
+        <div class="menu-tabs" role="tablist" id="menu-tabs"></div>
+        <div class="menu-panels" id="menu-panels">
+          <p class="muted center">Speisekarte wird geladen …</p>
+        </div>
+        <p class="menu-note muted center" id="menu-note"></p>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Eindrücke">
+      <img src="assets/img/dish1.jpg" alt="Angerichtete Speisen" loading="lazy">
+      <img src="assets/img/wine.jpg" alt="Weinglas am Tisch" loading="lazy">
+      <img src="assets/img/dish2.jpg" alt="Lachsgericht" loading="lazy">
+      <img src="assets/img/table.jpg" alt="Gedeckter Tisch" loading="lazy">
+    </section>
+
+    <section class="section highlights">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Mehr als ein Abendessen</p>
+          <h2>Für jeden Anlass</h2>
+        </div>
+        <div class="cards" id="highlights"></div>
+      </div>
+    </section>
+
+    <section class="section visit" id="besuch">
+      <div class="wrap visit-grid">
+        <div>
+          <p class="eyebrow">Öffnungszeiten</p>
+          <h2>Wann wir für Sie da sind</h2>
+          <table class="hours" id="hours"></table>
+          <p class="muted small" data-bind="hoursNote"></p>
+        </div>
+        <div class="contact-card" id="kontakt">
+          <p class="eyebrow">Kontakt & Reservierung</p>
+          <h2>Besuchen Sie uns</h2>
+          <address>
+            <span data-bind="contact.street"></span><br>
+            <span data-bind="contact.zip"></span> <span data-bind="contact.city"></span>
+          </address>
+          <ul class="contact-list">
+            <li><span>Telefon</span><a data-href="tel" data-bind="contact.phone" href="#"></a></li>
+            <li><span>E-Mail</span><a data-href="mail" data-bind="contact.email" href="#"></a></li>
+          </ul>
+          <div class="contact-actions">
+            <a class="btn btn-gold" data-href="tel" href="#">Jetzt anrufen</a>
+            <a class="btn btn-ghost" data-href="maps" href="#" target="_blank" rel="noopener">Route planen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <img src="assets/img/logo.png" alt="" width="72" height="72">
+      <div class="social">
+        <a data-href="instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a data-href="facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <nav class="legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+      <p class="muted small">© <span id="year"></span> Göllner's Kulinarium · Rheinstraße 2 · 65474 Bischofsheim</p>
+    </div>
+  </footer>
+</body>
+</html>
