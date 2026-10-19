@@ -1,0 +1,13 @@
+{
+  "weekly": {
+    "monday":    [],
+    "tuesday":   [],
+    "wednesday": ["12:00-14:00", "17:00-21:30"],
+    "thursday":  ["12:00-14:00", "17:00-21:30"],
+    "friday":    ["12:00-14:00", "17:00-22:00"],
+    "saturday":  ["12:00-14:00", "17:00-22:00"],
+    "sunday":    ["12:00-20:00"]
+  },
+  "closed": [],
+  "note": "An Feiertagen können abweichende Zeiten gelten."
+}

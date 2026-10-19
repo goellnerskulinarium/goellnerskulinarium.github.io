@@ -1,15 +1,9 @@
-// Fills the page from content/site.json and content/menu.json.
-// Text lives in those files (or a published Google Sheet), never in index.html.
+// Fills the page from the files in content/ (loaded by content.js).
+// Text and photos live in those files (or a published Google Sheet), never in index.html.
 
 const DAYS_EN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
-
-async function loadJSON(url) {
-  const res = await fetch(url, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`${url}: ${res.status}`);
-  return res.json();
-}
 
 // --- Site content -----------------------------------------------------------
 
@@ -23,22 +17,22 @@ function renderSite(site) {
     tel: `tel:${site.contact.phoneLink}`,
     mail: `mailto:${site.contact.email}`,
     maps: site.contact.mapsUrl,
-    instagram: site.social.instagram,
-    facebook: site.social.facebook,
+    instagram: site.contact.instagram,
+    facebook: site.contact.facebook,
   };
   document.querySelectorAll('[data-href]').forEach(el => {
     const href = links[el.dataset.href];
     if (href) el.href = href; else el.hidden = true;
   });
 
-  const notice = document.getElementById('notice');
-  notice.hidden = !(site.notice && site.notice.active && site.notice.text);
+  const { notice, about, offers } = site.texts;
+  document.getElementById('notice').hidden = !(notice && notice.show && notice.text);
 
   document.getElementById('about-paragraphs').replaceChildren(
-    ...site.about.paragraphs.map(text => Object.assign(document.createElement('p'), { textContent: text }))
+    ...about.paragraphs.map(text => Object.assign(document.createElement('p'), { textContent: text }))
   );
 
-  document.getElementById('highlights').replaceChildren(...site.highlights.map(h => {
+  document.getElementById('highlights').replaceChildren(...offers.cards.map(h => {
     const card = document.createElement('article');
     card.className = 'card reveal';
     card.innerHTML = '<h3></h3><p></p>';
@@ -47,7 +41,19 @@ function renderSite(site) {
     return card;
   }));
 
-  renderHours(site.hours);
+  renderImages(site.images);
+  renderHours(site);
+}
+
+function renderImages(images) {
+  const src = file => IMAGE_DIR + file;
+  document.querySelector('.hero-bg').style.backgroundImage = `url('${src(images.hero)}')`;
+  for (const [id, img] of [['about-large', images.about.large], ['about-small', images.about.small]]) {
+    Object.assign(document.getElementById(id), { src: src(img.file), alt: img.alt || '' });
+  }
+  document.getElementById('gallery').replaceChildren(...images.gallery.map(img =>
+    Object.assign(document.createElement('img'), { src: src(img.file), alt: img.alt || '', loading: 'lazy' })
+  ));
 }
 
 // --- Opening hours ----------------------------------------------------------
@@ -63,7 +69,17 @@ function berlinNow() {
 
 const toMin = t => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
 
-function renderHours(hours) {
+// Berlin calendar date `offset` days from today, as "YYYY-MM-DD".
+function berlinISODate(offset = 0) {
+  const p = Object.fromEntries(
+    new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit' })
+      .formatToParts(new Date()).map(x => [x.type, x.value])
+  );
+  return new Date(Date.UTC(+p.year, +p.month - 1, +p.day + offset)).toISOString().slice(0, 10);
+}
+
+function renderHours(site) {
+  const { hours, closedDates } = site;
   const now = berlinNow();
   const table = document.getElementById('hours');
   table.replaceChildren(...hours.map((d, i) => {
@@ -78,24 +94,34 @@ function renderHours(hours) {
     return tr;
   }));
 
+  // Upcoming closures (holidays, Betriebsferien) under the table; past ones are hidden.
+  const today = berlinISODate();
+  const upcoming = site.closed.filter(c => c.days.length && c.days[c.days.length - 1] >= today);
+  const closures = document.getElementById('closures');
+  closures.textContent = upcoming.length ? `Zusätzlich geschlossen: ${upcoming.map(c => c.text.trim().replace(/\s*[-–]\s*/, ' – ')).join(' · ')}` : '';
+  closures.hidden = !upcoming.length;
+
   const status = document.getElementById('open-status');
-  const today = hours[now.day].slots;
-  const current = today.find(([a, b]) => now.minutes >= toMin(a) && now.minutes < toMin(b));
+  const todaySlots = closedDates.has(today) ? [] : hours[now.day].slots;
+  const current = todaySlots.find(([a, b]) => now.minutes >= toMin(a) && now.minutes < toMin(b));
   if (current) {
     status.textContent = `Jetzt geöffnet · bis ${current[1]} Uhr`;
     status.classList.add('open');
   } else {
-    status.textContent = `Gerade geschlossen · ${nextOpening(hours, now)}`;
+    status.textContent = `Gerade geschlossen · ${nextOpening(hours, closedDates, now)}`;
   }
   status.hidden = false;
 }
 
-function nextOpening(hours, now) {
-  for (let offset = 0; offset < 7; offset++) {
+function nextOpening(hours, closedDates, now) {
+  for (let offset = 0; offset < 60; offset++) {
+    if (closedDates.has(berlinISODate(offset))) continue;
     const idx = (now.day + offset) % 7;
     const slot = hours[idx].slots.find(([a]) => offset > 0 || toMin(a) > now.minutes);
     if (slot) {
-      const when = offset === 0 ? 'heute' : offset === 1 ? 'morgen' : `am ${hours[idx].day}`;
+      const date = new Date(`${berlinISODate(offset)}T00:00:00Z`)
+        .toLocaleDateString('de-DE', { timeZone: 'UTC', day: 'numeric', month: 'numeric' });
+      const when = offset === 0 ? 'heute' : offset === 1 ? 'morgen' : offset < 7 ? `am ${hours[idx].day}` : `am ${hours[idx].day}, ${date}`;
       return `öffnet ${when} um ${slot[0]} Uhr`;
     }
   }
@@ -191,8 +217,8 @@ function renderMenu(menu) {
 }
 
 async function loadMenu(site) {
-  const csvUrl = site.sources && site.sources.menuCsv;
-  const fallback = await loadJSON('content/menu.json');
+  const csvUrl = site.menuCsv;
+  const fallback = site.menu;
   if (!csvUrl) return fallback;
   try {
     const res = await fetch(csvUrl, { cache: 'no-cache' });
@@ -201,7 +227,7 @@ async function loadMenu(site) {
     if (!menu.categories.length) throw new Error('empty sheet');
     return { ...menu, note: fallback.note };
   } catch (err) {
-    console.warn('Google Sheet konnte nicht geladen werden, nutze menu.json:', err);
+    console.warn('Google Sheet could not be loaded, using content/menu.json:', err);
     return fallback;
   }
 }
@@ -266,7 +292,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 (async function init() {
   setupUI();
   try {
-    const site = await loadJSON('content/site.json');
+    const site = await loadContent();
     renderSite(site);
     initReservation(site);
     renderMenu(await loadMenu(site));

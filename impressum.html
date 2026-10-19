@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/logo.png">
   <link rel="stylesheet" href="assets/css/fonts.css?v=3">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
   <header class="site-header scrolled">
@@ -20,10 +20,16 @@
     <p class="eyebrow">Rechtliches</p>
     <h1>Impressum</h1>
     <h2>Angaben gemäß § 5 DDG</h2>
-    <p>Göllner's Kulinarium<br>Rheinstraße 2<br>65474 Bischofsheim</p>
+    <p><span data-contact="name">Göllner's Kulinarium</span><br><span data-contact="street">Rheinstraße 2</span><br><span data-contact="zip">65474</span> <span data-contact="city">Bischofsheim</span></p>
     <p class="placeholder">Bitte ergänzen: vollständiger Name des Inhabers bzw. der Firma, Rechtsform, ggf. Handelsregister und USt-IdNr. – die Angaben aus dem bisherigen Impressum übernehmen.</p>
     <h2>Kontakt</h2>
-    <p>Telefon: 06144 89878<br>E-Mail: info@goellnerskulinarium.de</p>
+    <p>Telefon: <span data-contact="phone">06144 89878</span><br>E-Mail: <span data-contact="email">info@goellnerskulinarium.de</span></p>
   </main>
+  <script>
+    // Keep the contact details in sync with content/contact.json
+    fetch('content/contact.json', { cache: 'no-cache' }).then(r => r.json()).then(c => {
+      document.querySelectorAll('[data-contact]').forEach(el => { if (c[el.dataset.contact]) el.textContent = c[el.dataset.contact]; });
+    }).catch(() => {});
+  </script>
 </body>
 </html>

@@ -10,13 +10,14 @@
   <meta name="theme-color" content="#0e0c0a">
   <meta property="og:title" content="Göllner's Kulinarium">
   <meta property="og:description" content="Ehrliche deutsche Küche in Bischofsheim.">
-  <meta property="og:image" content="assets/img/hero.jpg">
+  <meta property="og:image" content="content/images/hero.jpg">
   <link rel="icon" href="assets/img/logo.png">
   <link rel="stylesheet" href="assets/css/fonts.css?v=3">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="assets/js/reservation.js?v=3" defer></script>
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="assets/js/content.js?v=4" defer></script>
+  <script src="assets/js/reservation.js?v=4" defer></script>
+  <script src="assets/js/main.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -59,12 +60,12 @@
 
   <main id="main">
     <section class="hero">
-      <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+      <div class="hero-bg"></div>
       <div class="wrap hero-content">
         <img class="hero-logo reveal" src="assets/img/logo.png" alt="Göllner's Kulinarium Logo" width="220" height="220">
-        <p class="eyebrow reveal">Restaurant · Bischofsheim</p>
-        <h1 class="reveal" data-bind="tagline"></h1>
-        <p class="lead reveal" data-bind="intro"></p>
+        <p class="eyebrow reveal" data-bind="texts.hero.eyebrow"></p>
+        <h1 class="reveal" data-bind="texts.hero.title"></h1>
+        <p class="lead reveal" data-bind="texts.hero.subtitle"></p>
         <div class="hero-actions reveal">
           <a class="btn btn-gold" data-action="reserve" href="#reservieren">Tisch reservieren</a>
           <a class="btn btn-ghost" href="#speisekarte">Speisekarte ansehen</a>
@@ -74,19 +75,19 @@
     </section>
 
     <div class="notice" id="notice" hidden>
-      <div class="wrap"><span class="notice-dot" aria-hidden="true"></span><p data-bind="notice.text"></p></div>
+      <div class="wrap"><span class="notice-dot" aria-hidden="true"></span><p data-bind="texts.notice.text"></p></div>
     </div>
 
     <section class="section about" id="ueber-uns">
       <div class="wrap about-grid">
         <div class="about-text">
           <p class="eyebrow">Über uns</p>
-          <h2 data-bind="about.title"></h2>
+          <h2 data-bind="texts.about.title"></h2>
           <div id="about-paragraphs"></div>
         </div>
         <figure class="about-media">
-          <img src="assets/img/interior.jpg" alt="Gedeckte Tische im Restaurant" loading="lazy">
-          <img class="about-media-small" src="assets/img/dish3.jpg" alt="Gegrilltes Steak" loading="lazy">
+          <img id="about-large" alt="" loading="lazy">
+          <img id="about-small" class="about-media-small" alt="" loading="lazy">
         </figure>
       </div>
     </section>
@@ -95,7 +96,7 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Speisekarte</p>
-          <h2>Aus unserer Küche</h2>
+          <h2 data-bind="texts.menu.title"></h2>
         </div>
         <div class="menu-tabs" role="tablist" id="menu-tabs"></div>
         <div class="menu-panels" id="menu-panels">
@@ -105,18 +106,13 @@
       </div>
     </section>
 
-    <section class="gallery" aria-label="Eindrücke">
-      <img src="assets/img/dish1.jpg" alt="Angerichtete Speisen" loading="lazy">
-      <img src="assets/img/wine.jpg" alt="Weinglas am Tisch" loading="lazy">
-      <img src="assets/img/dish2.jpg" alt="Lachsgericht" loading="lazy">
-      <img src="assets/img/table.jpg" alt="Gedeckter Tisch" loading="lazy">
-    </section>
+    <section class="gallery" id="gallery" aria-label="Eindrücke"></section>
 
     <section class="section highlights">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Angebot</p>
-          <h2>Was wir bieten</h2>
+          <h2 data-bind="texts.offers.title"></h2>
         </div>
         <div class="cards" id="highlights"></div>
       </div>
@@ -126,13 +122,14 @@
       <div class="wrap visit-grid">
         <div>
           <p class="eyebrow">Öffnungszeiten</p>
-          <h2>Wann wir geöffnet haben</h2>
+          <h2 data-bind="texts.hours.title"></h2>
           <table class="hours" id="hours"></table>
+          <p class="closures small" id="closures" hidden></p>
           <p class="muted small" data-bind="hoursNote"></p>
         </div>
         <div class="contact-card" id="kontakt">
           <p class="eyebrow">Kontakt & Reservierung</p>
-          <h2>Besuchen Sie uns</h2>
+          <h2 data-bind="texts.contact.title"></h2>
           <address>
             <span data-bind="contact.street"></span><br>
             <span data-bind="contact.zip"></span> <span data-bind="contact.city"></span>
@@ -161,7 +158,7 @@
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
-      <p class="muted small">© <span id="year"></span> Göllner's Kulinarium · Rheinstraße 2 · 65474 Bischofsheim</p>
+      <p class="muted small">© <span id="year"></span> <span data-bind="contact.name"></span> · <span data-bind="contact.street"></span> · <span data-bind="contact.zip"></span> <span data-bind="contact.city"></span></p>
     </div>
   </footer>
   <dialog class="reserve" id="reserve" aria-labelledby="reserve-title">

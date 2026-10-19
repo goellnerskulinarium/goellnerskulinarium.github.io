@@ -1,0 +1,11 @@
+{
+  "reservation": {
+    "web3formsKey": "c7db9fc6-a99d-4942-aed3-5be39af11abc",
+    "slotMinutes": 30,
+    "lastSeatingMinutesBeforeClose": 60,
+    "leadMinutes": 120,
+    "daysAhead": 30,
+    "maxGuests": 8
+  },
+  "menuGoogleSheetCsv": ""
+}

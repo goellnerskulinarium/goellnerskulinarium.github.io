@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "eyebrow": "Restaurant · Bischofsheim",
+    "title": "Deutsche Küche, frisch gekocht.",
+    "subtitle": "Steaks, Schnitzel und hausgemachte Suppen – mittags und abends."
+  },
+  "notice": {
+    "show": true,
+    "text": "Neu: unsere Herbstkarte mit Wild und Kürbis."
+  },
+  "about": {
+    "title": "Seit 2024 in Bischofsheim",
+    "paragraphs": [
+      "In der Rheinstraße kochen wir deutsche Küche mit frischen Zutaten: Steaks, Schnitzel, Suppen und wechselnde Gerichte der Saison.",
+      "Mittags und abends, zu zweit oder mit der ganzen Familie."
+    ]
+  },
+  "menu": {
+    "title": "Aus unserer Küche"
+  },
+  "offers": {
+    "title": "Was wir bieten",
+    "cards": [
+      { "title": "Feiern & Anlässe", "text": "Geburtstage, Jubiläen und Firmenessen – sprechen Sie uns an." },
+      { "title": "Mittagstisch", "text": "Mittwoch bis Sonntag ab 12 Uhr." },
+      { "title": "Gutscheine", "text": "Erhältlich direkt bei uns im Restaurant." }
+    ]
+  },
+  "hours": {
+    "title": "Wann wir geöffnet haben"
+  },
+  "contact": {
+    "title": "Besuchen Sie uns"
+  }
+}

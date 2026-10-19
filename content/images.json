@@ -1,0 +1,13 @@
+{
+  "hero": "hero.jpg",
+  "about": {
+    "large": { "file": "interior.jpg", "alt": "Gedeckte Tische im Restaurant" },
+    "small": { "file": "dish3.jpg", "alt": "Gegrilltes Steak" }
+  },
+  "gallery": [
+    { "file": "dish1.jpg", "alt": "Angerichtete Speisen" },
+    { "file": "wine.jpg", "alt": "Weinglas am Tisch" },
+    { "file": "dish2.jpg", "alt": "Lachsgericht" },
+    { "file": "table.jpg", "alt": "Gedeckter Tisch" }
+  ]
+}

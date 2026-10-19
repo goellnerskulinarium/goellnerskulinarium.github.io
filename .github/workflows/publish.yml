@@ -1,0 +1,45 @@
+# Checks the content files on every change and publishes the website only if they are OK.
+# A broken file (missing comma, wrong price format, …) therefore never goes live: the run
+# fails, GitHub emails whoever made the change, and the previous website stays online.
+
+name: Check and publish website
+
+on:
+  push:            # every branch is checked; only main is published
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check content files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/check-content.cjs
+
+  publish:
+    name: Publish website
+    needs: check
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect website files
+        run: rsync -a --exclude '.git' --exclude '.github' --exclude '.claude' --exclude 'scripts' --exclude '_site' ./ _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

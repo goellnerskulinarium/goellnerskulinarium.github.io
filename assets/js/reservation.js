@@ -7,7 +7,7 @@ function initReservation(site) {
   const slotStep = cfg.slotMinutes || 30;
   const lastSeating = cfg.lastSeatingMinutesBeforeClose ?? 60;
   const lead = cfg.leadMinutes ?? 120;
-  const closedDates = new Set(cfg.closedDates || []);
+  const closedDates = site.closedDates; // holidays / Betriebsferien from content/hours.json
 
   const dialog = document.getElementById('reserve');
   const form = document.getElementById('reserve-form');
@@ -159,7 +159,7 @@ function initReservation(site) {
           body: JSON.stringify({
             access_key: cfg.web3formsKey,
             subject: `Reservierungsanfrage: ${dateLabel}, ${time} Uhr – ${guestsLabel} – ${name}`,
-            from_name: `Website ${site.name}`,
+            from_name: `Website ${site.contact.name}`,
             name,
             email, // Web3Forms sets this as reply-to, so the owner can answer the guest directly
             Datum: dateLabel,

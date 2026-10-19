@@ -70,7 +70,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-2); outlin
   border-bottom: 1px solid transparent;
 }
 .site-header.scrolled { background: rgba(14, 12, 10, .86); backdrop-filter: blur(12px); border-color: var(--line); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: var(--header-h); }
 
 /* Contact bar above the header; collapses once the page is scrolled */
 .topbar {
@@ -190,6 +190,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-2); outlin
 .hours th { font: 500 1.25rem/1.2 var(--serif); }
 .hours td { text-align: right; color: #d9cfbd; }
 .hours .closed td { color: var(--muted); font-style: italic; }
+.closures { color: var(--gold-2); margin: 0 0 8px; }
 .hours .today th, .hours .today td { color: var(--gold-2); }
 .hours .today th::after { content: "Heute"; margin-left: 10px; font: 500 .62rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #17120a; background: var(--gold-grad); padding: 3px 6px; border-radius: 2px; vertical-align: middle; }
 .contact-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(32px, 4vw, 48px); }
@@ -302,7 +303,7 @@ label.field { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2
   .cards { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .header-social { display: flex; margin-left: auto; margin-right: 6px; }
   .header-social a { width: 44px; height: 44px; }
   .nav .nav-social { display: none; }
