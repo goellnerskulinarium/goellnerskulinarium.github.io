@@ -6,7 +6,8 @@
       "items": [
         { "name": "Rinderkraftbrühe", "description": "mit Flädle und Schnittlauch", "price": "6,90" },
         { "name": "Kürbiscremesuppe", "description": "Kürbiskernöl, geröstete Kerne", "price": "7,50", "tags": ["vegetarisch"] },
-        { "name": "Gulaschsuppe", "description": "kräftig gewürzt, mit Bauernbrot", "price": "8,50" }
+        { "name": "Gulaschsuppe", "description": "kräftig gewürzt, mit Bauernbrot", "price": "8,50" },
+        { "name": "Brühe", "description": "klare Brühe", "price": "5,00" }
       ]
     },
     {
