@@ -166,6 +166,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-2); outlin
 .dish-line { flex: 1; border-bottom: 1px dotted rgba(214, 178, 94, .35); transform: translateY(-5px); min-width: 20px; }
 .dish-price { font: 500 1.3rem/1 var(--serif); color: var(--gold-2); white-space: nowrap; }
 .dish-desc { margin: 4px 0 0; color: var(--muted); font-size: .97rem; }
+.dish-options { display: flex; flex-wrap: wrap; gap: 2px 20px; margin: 8px 0 0; color: var(--gold-2); font-size: .95rem; }
 .tag { display: inline-block; margin-left: 8px; font: 500 .66rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: #9fc49d; border: 1px solid rgba(159, 196, 157, .4); padding: 3px 6px; border-radius: 2px; vertical-align: middle; }
 .menu-note { margin-top: 44px; font-size: .9rem; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }

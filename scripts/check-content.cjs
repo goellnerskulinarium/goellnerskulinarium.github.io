@@ -15,6 +15,7 @@ const report = (file, message) => problems.push(`content/${file}.json: ${message
 
 const isText = v => typeof v === 'string' && v.trim() !== '';
 const isOptionalText = v => v === undefined || typeof v === 'string';
+const isPrice = v => typeof v === 'string' && /^\d{1,4}(,\d{2})?$/.test(v.trim());
 
 // "Unexpected token } in JSON at position 512" → line/column, so the owner can find the spot.
 function syntaxHint(source, err) {
@@ -90,6 +91,12 @@ if (m) {
       }
       if (item?.tags !== undefined && !(Array.isArray(item.tags) && item.tags.every(isText))) {
         report('menu', `${where}, ${dish}: "tags" must be a list of texts like ["vegetarisch"]`);
+      }
+      if (item?.sizes !== undefined && !(Array.isArray(item.sizes) && item.sizes.every(s => isText(s?.size) && isPrice(s?.price)))) {
+        report('menu', `${where}, ${dish}: "sizes" must be a list like [{ "size": "200 g", "price": "36,90" }]`);
+      }
+      if (item?.extras !== undefined && !(Array.isArray(item.extras) && item.extras.every(e => isText(e?.name) && isPrice(e?.price)))) {
+        report('menu', `${where}, ${dish}: "extras" must be a list like [{ "name": "mit Baguette", "price": "3,00" }]`);
       }
     });
   });

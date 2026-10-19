@@ -2,45 +2,56 @@
   "note": "Alle Preise in Euro inkl. MwSt. Fragen Sie uns gerne nach Allergenen.",
   "categories": [
     {
-      "name": "Suppen",
+      "name": "Tapas",
       "items": [
-        { "name": "Rinderkraftbrühe", "description": "mit Flädle und Schnittlauch", "price": "6,90" },
-        { "name": "Kürbiscremesuppe", "description": "Kürbiskernöl, geröstete Kerne", "price": "7,50", "tags": ["vegetarisch"] },
-        { "name": "Gulaschsuppe", "description": "kräftig gewürzt, mit Bauernbrot", "price": "8,50" },
-        { "name": "Brühe", "description": "klare Brühe", "price": "5,00" }
+        { "name": "Datteln im Speckmantel", "description": "In der Pfanne kross gebratene Premium-Datteln, liebevoll umhüllt von feinstem, hauchdünnem Speck. Eine perfekte Liaison aus süßer Frucht und herzhafter Würze.", "price": "8,90" },
+        { "name": "Marinierte Oliven", "description": "Eine erlesene Auswahl knackiger Oliven, sanft eingelegt in feinstem nativem Olivenöl extra und harmonisch veredelt mit wilden mediterranen Kräutern.", "price": "9,90",
+          "extras": [{ "name": "mit Baguette", "price": "3,00" }] }
       ]
     },
     {
-      "name": "Vorspeisen & Salate",
+      "name": "Vorspeisen",
       "items": [
-        { "name": "Feldsalat", "description": "Speck, Croûtons, Kartoffeldressing", "price": "9,80" },
-        { "name": "Rindercarpaccio", "description": "Rucola, Parmesan, Zitronenöl", "price": "13,50" },
-        { "name": "Großer Salatteller", "description": "mit gebratenen Hähnchenstreifen", "price": "15,90" }
+        { "name": "Rindercarpaccio", "description": "Hauchdünn geschnittene Rinderfiletscheiben mit einem Rucola-Nest und gehobelten Parmesanspänen", "price": "16,90" },
+        { "name": "Tagliata di Manzo", "description": "200 g Black Angus: gebratenes Steak in Scheiben, bedeckt mit einem Rucola-Salat mit Dressing, Tomaten-Concassée und roten Zwiebeln", "price": "26,90" },
+        { "name": "Spinatknödel", "description": "In Salbeibutter gebratene Spinatknödelscheiben mit Parmesanspänen", "price": "14,90", "tags": ["vegetarisch"] },
+        { "name": "Beilagensalat", "description": "Mit Dressing angemachter Mix-Salat mit Tomate, Gurke und Petersilie", "price": "6,50" },
+        { "name": "Vorspeisensalat", "description": "Mit Dressing angemachter Mix-Salat mit Tomate, Gurke, Karotte und Petersilie", "price": "8,50" }
       ]
     },
     {
-      "name": "Schnitzel",
+      "name": "Hauptspeisen",
       "items": [
-        { "name": "Wiener Schnitzel vom Kalb", "description": "Preiselbeeren, Kartoffel-Gurkensalat", "price": "26,50" },
-        { "name": "Jägerschnitzel", "description": "vom Schwein, Pilzrahmsauce, Bratkartoffeln", "price": "18,90" },
-        { "name": "Paprikaschnitzel", "description": "Paprikasauce, Pommes frites", "price": "18,90" },
-        { "name": "Cordon bleu", "description": "Schinken, Bergkäse, Bratkartoffeln", "price": "21,50" }
+        { "name": "Rinderfrikadelle", "description": "Serviert auf Kartoffelpüree, dazu ein pikantes Gurken-Relish und Röstzwiebeln", "price": "22,90" },
+        { "name": "Gebratene Lachswürfel an Zitronenrahm-Tagliatelle", "description": "Knusprig in der Pfanne gewendete Lachswürfel auf frischen Tagliatelle, verfeinert mit einer cremigen Zitronensahnesoße", "price": "26,90" },
+        { "name": "Bischofsheimer Pfanne", "description": "In Silvaner-Jus geschmortes Schweinegulasch und gebratene Champignons, gratiniert mit Emmentaler Käse, dazu hausgemachte Rösti", "price": "19,90" },
+        { "name": "Bischofsheimer Burger", "description": "100 % gebratenes Rinder-Patty im Brioche-Bun mit Tomate, Gurke, roten Zwiebeln, Salat, Burger-Soße und Cheddar-Käse", "price": "16,90" },
+        { "name": "Tagliatelle", "description": "Feine Tagliatelle in einem cremigen Haselnuss-Pesto, veredelt mit frischen Kirschtomaten", "price": "18,90", "tags": ["vegetarisch"] },
+        { "name": "Spinatknödel", "description": "In Salbeibutter gebratene Spinatknödelscheiben mit Parmesanspänen", "price": "18,90", "tags": ["vegetarisch"] },
+        { "name": "Rumpsteak", "description": "Gebratenes Black-Angus-Steak, dazu in Knoblauchbutter geschwenkte Rosmarinkartoffeln und in mediterranem Sud gedünstete Bohnen", "price": "",
+          "sizes": [
+            { "size": "200 g", "price": "36,90" },
+            { "size": "250 g", "price": "40,90" },
+            { "size": "300 g", "price": "42,90" }
+          ] },
+        { "name": "Bischofsheimer Salat", "description": "Mit Dressing marinierter Mix-Salat mit Gurke, Tomate, Karotte, roten Zwiebeln und Petersilie", "price": "12,90",
+          "extras": [{ "name": "mit Rinderstreifen", "price": "14,00" }] }
       ]
     },
     {
-      "name": "Steaks",
+      "name": "Beilagen",
       "items": [
-        { "name": "Rumpsteak 250 g", "description": "Kräuterbutter, Rosmarinkartoffeln", "price": "29,50" },
-        { "name": "Rinderfilet 200 g", "description": "Rotweinjus, Ofengemüse", "price": "36,00" },
-        { "name": "Ribeye 300 g", "description": "Pfeffersauce, Steakhouse-Pommes", "price": "34,50" }
+        { "name": "Pommes frites", "price": "5,90" },
+        { "name": "Rosmarinkartoffeln", "price": "5,90" },
+        { "name": "Rösti", "price": "5,90" },
+        { "name": "Bohnen", "price": "5,90" },
+        { "name": "Bratkartoffeln", "price": "5,90" }
       ]
     },
     {
-      "name": "Desserts",
+      "name": "Dessert",
       "items": [
-        { "name": "Apfelstrudel", "description": "warm, mit Vanillesauce", "price": "8,50" },
-        { "name": "Crème brûlée", "description": "Tahiti-Vanille", "price": "8,90" },
-        { "name": "Schokoladenküchlein", "description": "flüssiger Kern, Vanilleeis", "price": "9,50" }
+        { "name": "Schokoladen-Soufflé", "description": "Mit Vanilleeis und Beerenragout", "price": "12,90" }
       ]
     }
   ]

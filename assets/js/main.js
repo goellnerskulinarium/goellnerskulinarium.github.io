@@ -173,6 +173,13 @@ const formatPrice = p => {
   return `${s} €`;
 };
 
+// Sizes ("200 g 36,90 €") and paid extras ("mit Baguette + 3,00 €") shown below the description.
+function optionRow(options, label) {
+  const row = Object.assign(document.createElement('p'), { className: 'dish-options' });
+  for (const o of options) row.append(Object.assign(document.createElement('span'), { textContent: label(o) }));
+  return row;
+}
+
 function renderMenu(menu) {
   const tabs = document.getElementById('menu-tabs');
   const panels = document.getElementById('menu-panels');
@@ -200,9 +207,12 @@ function renderMenu(menu) {
       for (const t of item.tags || []) {
         nameEl.append(Object.assign(document.createElement('span'), { className: 'tag', textContent: t }));
       }
-      dish.querySelector('.dish-price').textContent = formatPrice(item.price);
+      const sizes = item.sizes || [];
+      dish.querySelector('.dish-price').textContent = sizes.length ? `ab ${formatPrice(sizes[0].price)}` : formatPrice(item.price);
       const desc = dish.querySelector('.dish-desc');
       if (item.description) desc.textContent = item.description; else desc.remove();
+      if (sizes.length) dish.append(optionRow(sizes, s => `${s.size}: ${formatPrice(s.price)}`));
+      if (item.extras?.length) dish.append(optionRow(item.extras, e => `${e.name} + ${formatPrice(e.price)}`));
       panel.append(dish);
     }
 

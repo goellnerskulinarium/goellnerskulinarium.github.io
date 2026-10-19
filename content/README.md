@@ -46,6 +46,18 @@ the old website stays online, and you get an email from GitHub saying what's wro
 { "name": "Kürbissuppe", "description": "Kürbiskernöl", "price": "7,50", "tags": ["vegetarisch"] },
 ```
 
+**Several sizes** – leave `price` empty, the website shows "ab 36,90 €" and the sizes below:
+```json
+{ "name": "Rumpsteak", "description": "…", "price": "",
+  "sizes": [{ "size": "200 g", "price": "36,90" }, { "size": "300 g", "price": "42,90" }] },
+```
+
+**Extra for a surcharge** – shown as "mit Baguette + 3,00 €":
+```json
+{ "name": "Marinierte Oliven", "description": "…", "price": "9,90",
+  "extras": [{ "name": "mit Baguette", "price": "3,00" }] },
+```
+
 **Closed on extra days** (`hours.json`) – single days or a range:
 ```json
 "closed": ["24.12.2026", "31.12.2026", "27.07.2027 - 09.08.2027"],
