@@ -40,6 +40,8 @@ All editable content is in `content/` (see `content/README.md`, the owner's edit
 - Don't load anything from third-party servers (Google Fonts, Maps embeds, tracking). The site is deliberately
   DSGVO-friendly; adding such things requires a cookie banner and Datenschutz changes.
 - Don't change `impressum.html` or `datenschutz.html` without being explicitly asked. They are legal texts.
+  `datenschutz.html` sections 3 (no cookies), 5 (GitHub Pages hosting), 7 (Web3Forms) and 10 (links) describe
+  what the site actually uses: if a service is added, removed or replaced, point out that they need updating.
 
 ## Reservation form
 

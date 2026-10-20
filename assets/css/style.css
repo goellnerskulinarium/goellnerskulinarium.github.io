@@ -205,6 +205,7 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 20px; }
 /* Footer */
 .site-footer { padding: 64px 0 40px; border-top: 1px solid var(--line); text-align: center; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.nowrap { white-space: nowrap; }
 .social, .legal { display: flex; gap: 28px; }
 .social a, .legal a { text-decoration: none; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .social a:hover, .legal a:hover { color: var(--gold-2); }
@@ -221,6 +222,10 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 20px; }
 /* Legal pages */
 .legal-page { padding: calc(var(--header-h) + 60px) 0 100px; max-width: 760px; }
 .legal-page h2 { font-size: 1.8rem; margin-top: 2em; }
+.legal-page h3 { font-size: 1.3rem; margin: 1.6em 0 .4em; }
+.legal-page li { margin: .4em 0; }
+.legal-page h1 { hyphens: auto; }
+.legal-page a { overflow-wrap: anywhere; }
 .legal-page .placeholder { border: 1px dashed var(--line); padding: 16px 20px; color: var(--muted); }
 
 /* Reservation dialog */

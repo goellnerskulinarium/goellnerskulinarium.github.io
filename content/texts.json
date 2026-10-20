@@ -1,7 +1,7 @@
 {
   "hero": {
-    "eyebrow": "Restaurant · Bischofsheim",
-    "title": "Gute Küche, frisch gekocht.",
+    "eyebrow": "Wo Essen zu Ihrem Gaumen spricht",
+    "title": "Deutsche Küche mit mediterranem Flair",
     "subtitle": "Black-Angus-Steaks, Pasta, Burger und Tapas – mittags und abends."
   },
   "notice": {
@@ -11,8 +11,10 @@
   "about": {
     "title": "Seit 2024 in Bischofsheim",
     "paragraphs": [
-      "In der Rheinstraße kochen wir mit frischen Zutaten: Black-Angus-Steaks, Burger, Pasta und Tapas zum Teilen.",
-      "Mittags und abends, zu zweit oder mit der ganzen Familie."
+      "Gutbürgerlich trifft mediterrane Leichtigkeit – das ist das Göllner’s Kulinarium.",
+      "Wir sind ein leidenschaftliches, kleines Familienunternehmen, das 2024 seine Türen für dich geöffnet hat. Hinter dem Herd steht der Küchenchef selbst: Nach der Ausbildung im Bassenheimer Hof in Mainz ging es als Freelancer quer durch die kulinarische Landschaft. Von der gehobenen Gastronomie über Bankett und Hotelbetriebe bis hin zur rustikalen Küche wurden überall wertvolle Eindrücke gesammelt.",
+      "Das Ergebnis dieser kulinarischen Reise? Ein ganz eigener Kochstil. Wir bringen das Beste aus der deutschen Traditionsküche auf den Teller und kombinieren es mit mediterraner Finesse.",
+      "Familiär, frisch und mit dem gewissen Extra. Wir freuen uns auf dich!"
     ]
   },
   "menu": {
@@ -21,8 +23,8 @@
   "offers": {
     "title": "Was wir bieten",
     "cards": [
-      { "title": "Feiern & Anlässe", "text": "Geburtstage, Jubiläen und Firmenessen – sprechen Sie uns an." },
-      { "title": "Mittagstisch", "text": "Mittwoch bis Sonntag ab 12 Uhr." },
+      { "title": "Feiern & Anlässe", "text": "Geburtstage, Jubiläen, Trauerfeiern, Firmenessen – sprechen Sie uns an." },
+      { "title": "Mittagstisch", "text": "Mittwoch bis Samstag ab 12 Uhr." },
       { "title": "Gutscheine", "text": "Erhältlich direkt bei uns im Restaurant." }
     ]
   },

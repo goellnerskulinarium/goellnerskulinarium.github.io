@@ -1,13 +1,13 @@
 {
   "hero": "hero.jpg",
   "about": {
-    "large": { "file": "interior.jpg", "alt": "Gedeckte Tische im Restaurant" },
-    "small": { "file": "dish3.jpg", "alt": "Gegrilltes Steak" }
+    "large": { "file": "chef.jpg", "alt": "Unser Küchenchef" },
+    "small": { "file": "beef-dish.jpg", "alt": "Fleischgericht mit glasierter Karotte und Püree" }
   },
   "gallery": [
-    { "file": "dish1.jpg", "alt": "Angerichtete Speisen" },
-    { "file": "wine.jpg", "alt": "Weinglas am Tisch" },
+    { "file": "pasta.jpg", "alt": "Tagliatelle mit Pesto, Burrata und Kirschtomaten" },
+    { "file": "wine.jpg", "alt": "Weingläser beim Anstoßen" },
     { "file": "dish2.jpg", "alt": "Lachsgericht" },
-    { "file": "table.jpg", "alt": "Gedeckter Tisch" }
+    { "file": "dessert.jpg", "alt": "Schokoladendessert mit Orange und Minze" }
   ]
 }
