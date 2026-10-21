@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/css/style.css?v=9">
   <script>document.documentElement.classList.add('js')</script>
   <script src="assets/js/content.js?v=4" defer></script>
-  <script src="assets/js/reservation.js?v=4" defer></script>
+  <script src="assets/js/reservation.js?v=5" defer></script>
   <script src="assets/js/main.js?v=5" defer></script>
 </head>
 <body>
@@ -188,9 +188,10 @@
           <div id="r-times"></div>
         </fieldset>
 
+        <label class="field"><span class="label">Name</span><input name="name" autocomplete="name" required></label>
         <div class="field-grid">
-          <label class="field"><span class="label">Name</span><input name="name" autocomplete="name" required></label>
           <label class="field"><span class="label">E-Mail</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="field"><span class="label">Telefon</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
         </div>
         <label class="field"><span class="label">Anmerkung <em>(optional)</em></span><textarea name="note" rows="3" placeholder="z. B. Kinderstuhl, Allergien, besonderer Anlass"></textarea></label>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">

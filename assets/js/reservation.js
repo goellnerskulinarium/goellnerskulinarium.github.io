@@ -128,9 +128,11 @@ function initReservation(site) {
     const data = new FormData(form);
     const name = (data.get('name') || '').trim();
     const email = (data.get('email') || '').trim();
+    const phone = (data.get('phone') || '').trim();
     const note = (data.get('note') || '').trim();
     const emailField = form.elements.email;
     const nameField = form.elements.name;
+    const phoneField = form.elements.phone;
 
     const missing = [];
     if (!data.get('date')) missing.push('Datum');
@@ -140,6 +142,9 @@ function initReservation(site) {
     const emailOk = email && emailField.checkValidity();
     emailField.toggleAttribute('aria-invalid', !emailOk);
     if (!emailOk) missing.push('gültige E-Mail-Adresse');
+    const phoneOk = phone.replace(/\D/g, '').length >= 6;
+    phoneField.toggleAttribute('aria-invalid', !phoneOk);
+    if (!phoneOk) missing.push('Telefonnummer');
     if (missing.length) return showError(`Bitte noch ergänzen: ${missing.join(', ')}.`);
     if (data.get('botcheck')) return; // honeypot filled in → bot
 
@@ -165,6 +170,7 @@ function initReservation(site) {
             Datum: dateLabel,
             Uhrzeit: `${time} Uhr`,
             Personen: guestsLabel,
+            Telefon: phone,
             Anmerkung: note || '–',
             botcheck: '',
           }),
